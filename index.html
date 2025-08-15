@@ -12,14 +12,12 @@
     body {
         margin: 0;
         font-family: 'Marcellus', serif;
-        background: 
-            linear-gradient(135deg, #f8efe6, #f1e1d2),
+        background: linear-gradient(135deg, #f8efe6, #f1e1d2),
             url('https://www.transparenttextures.com/patterns/paper-fibers.png');
         color: #333;
         text-align: center;
         font-size: 1.05rem;
     }
-
     header {
         background: url('your-photo.jpg') no-repeat center center/cover;
         height: 100vh;
@@ -35,7 +33,6 @@
         inset: 0;
         background: rgba(0,0,0,0.3);
     }
-
     .name-container {
         position: relative;
         z-index: 1;
@@ -72,7 +69,6 @@
         background: linear-gradient(to right, transparent, gold, transparent);
         margin: 8px 0;
     }
-
     .section {
         padding: 30px 20px;
     }
@@ -85,7 +81,6 @@
         font-size: 1.5rem;
         margin: 20px 0;
     }
-
     .buttons a {
         display: inline-block;
         margin: 10px;
@@ -101,13 +96,11 @@
     .buttons a:hover {
         background: #b5835a;
     }
-
     footer {
         padding: 20px;
         font-size: 0.9rem;
         color: #777;
     }
-
     .lang-switch {
         position: fixed;
         top: 15px;
@@ -124,10 +117,9 @@
         border-radius: 5px;
         font-family: Arial, sans-serif;
     }
-
     .music-btn {
         position: fixed;
-        bottom: 15px;
+        bottom: 70px;
         left: 15px;
         z-index: 10;
         background: #d4a373;
@@ -144,14 +136,31 @@
         background: #b5835a;
         transform: scale(1.05);
     }
-
+    .scroll-btn {
+        position: fixed;
+        bottom: 15px;
+        left: 15px;
+        z-index: 10;
+        background: #d4a373;
+        color: white;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        transition: background 0.3s, transform 0.2s;
+    }
+    .scroll-btn:hover {
+        background: #b5835a;
+        transform: scale(1.05);
+    }
     .highlight-name {
         font-family: 'Great Vibes', cursive;
         font-size: 1.4em;
         color: #b5835a;
     }
-
-    /* Календарь */
     table.calendar {
         border-collapse: collapse;
         margin: 20px auto;
@@ -170,7 +179,6 @@
         0%, 50%, 100% { opacity: 1; }
         25%, 75% { opacity: 0.5; }
     }
-
     .owners {
         font-family: 'Cormorant Garamond', serif;
         font-size: 2rem;
@@ -197,110 +205,84 @@
 <button class="music-btn" id="music-toggle">▶</button>
 <audio id="bg-music" src="your-music.mp3" autoplay loop></audio>
 
+<!-- Кнопка вниз/вверх -->
+<button class="scroll-btn" id="scroll-btn"></button>
+
 <!-- Шапка -->
 <header>
     <div class="name-container">
-        <div class="groom-name" id="groom-name">Бехруз</div>
+        <div class="groom-name" id="groom-name"></div>
         <div class="and-symbol">&</div>
-        <div class="bride-name" id="bride-name">Нигара</div>
+        <div class="bride-name" id="bride-name"></div>
     </div>
-    <div id="date">21 август 2025</div>
+    <div id="date"></div>
 </header>
 
 <!-- Приглашение -->
-<section class="section">
-    <h2 id="invite-title">Ассалому алейкум!</h2>
-    <p id="invite-text" class="narrow-text">
-        Азиз меҳмонимиз, сизни фарзандларимиз 
-        <span class="highlight-name">Бехруз</span> ва 
-        <span class="highlight-name">Нигара</span> ларнинг никоҳ тўйи муносабати билан ёзиладиган дастурхонимизга таклиф этамиз.
-    </p>
+<section class="section" id="invite-section">
+    <h2 id="invite-title"></h2>
+    <p id="invite-text" class="narrow-text"></p>
     <div id="calendar-container"></div>
-    <div class="countdown" id="countdown">00 кун 00 соат 00 дақиқа</div>
+    <div class="countdown" id="countdown"></div>
 </section>
 
 <!-- Локация -->
 <section class="section">
-    <h3 id="location-title">Манзилимиз:</h3>
-    <p id="location-text">Қорамурт қишлоғи, «Гузар» тўйхонаси</p>
+    <h3 id="location-title"></h3>
+    <p id="location-text"></p>
     <div class="buttons">
-        <a id="map-link" href="https://maps.app.goo.gl/ztNCwJjWh4VpBvif6?g_st=awb" target="_blank">Ҳаритадан куриш</a>
+        <a id="map-link" href="https://maps.app.goo.gl/ztNCwJjWh4VpBvif6?g_st=awb" target="_blank"></a>
     </div>
 </section>
 
 <!-- Контакты -->
 <section class="section">
-    <h3 id="contact-title">Табрик учун қўнғироқ:</h3>
+    <h3 id="contact-title"></h3>
     <div class="buttons">
-        <a id="groom-phone" href="tel:+77753047999">Қўнғироқ</a>
+        <a id="groom-phone" href="tel:+77753047999"></a>
     </div>
 </section>
 
 <!-- Хозяева -->
-<div class="owners" id="owners-text">Туй эгалари: Мирзахмат ота ўғли Вахиджан Нуртаевлар хонадони</div>
-<div class="final-text" id="final-text">Сизни биз учун бахтли кунда кўришдан хурсанд бўламиз!</div>
+<div class="owners" id="owners-text"></div>
+<div class="final-text" id="final-text"></div>
 
 <footer>Бехруз&Нигара</footer>
 
-<!-- Скрипт -->
 <script>
 const translations = {
     uz: {
-        groom: "Бехруз",
-        bride: "Нигара",
-        date: "21 август 2025",
+        groom: "Бехруз", bride: "Нигара", date: "21 август 2025",
         inviteTitle: "Ассалому алейкум, Азиз меҳмонимиз!",
         inviteText: `Азиз меҳмонимиз, сизни фарзандларимиз <span class="highlight-name">Бехруз</span> ва <span class="highlight-name">Нигара</span> ларнинг никоҳ тўйи муносабати билан ёзиладиган дастурхонимизга таклиф этамиз.`,
-        locationTitle: "Манзилимиз:",
-        locationText: "Қорамурт қишлоғи, «Гузар» тўйхонаси",
-        mapLink: "Ҳаритадан куриш",
-        contactTitle: "Табрик учун қўнғироқ:",
-        groomPhone: "Қўнғироқ қилиш",
-        days: "кун",
-        hours: "соат",
-        minutes: "дақиқа",
-        started: "Тўй бошланди!",
+        locationTitle: "Манзилимиз:", locationText: "Қорамурт қишлоғи, «Гузар» тўйхонаси",
+        mapLink: "Ҳаритадан куриш", contactTitle: "Табрик учун қўнғироқ:", groomPhone: "Қўнғироқ қилиш",
+        days: "кун", hours: "соат", minutes: "дақиқа", started: "Тўй бошланди!",
         owners: "Ҳурмат ва эҳтиром ила, Мирзахмат ота ўғли Вахиджан Нуртаевлар хонадони",
         final: "Сизни биз учун бахтли кунда кўришдан хурсанд бўламиз!",
-        weekdays: ["Д", "С", "Ч", "П", "Ж", "Ш", "Я"]
+        weekdays: ["Д", "С", "Ч", "П", "Ж", "Ш", "Я"], scrollDown: "⬇ Pastga", scrollUp: "⬆ Yuqoriga"
     },
     kz: {
-        groom: "Бехруз",
-        bride: "Нигара",
-        date: "21 тамыз 2025",
+        groom: "Бехруз", bride: "Нигара", date: "21 тамыз 2025",
         inviteTitle: "Біз сіздерді үйлену тойына шақырамыз!",
         inviteText: `Құрметті қонақтар! Сіздерді ұлымыз <span class="highlight-name">Бехруз</span> және келініміз <span class="highlight-name">Нигара</span>ның некелесу тойына шақырамыз.`,
-        locationTitle: "Той өтетін орын:",
-        locationText: "Қарамұрт ауылы, «Гузар» мейрамханасы",
-        mapLink: "Картадан қарау",
-        contactTitle: "Құттықтау үшін қоңырау:",
-        groomPhone: "Қоңырау шалу",
-        days: "күн",
-        hours: "сағат",
-        minutes: "минут",
-        started: "Той басталды!",
+        locationTitle: "Той өтетін орын:", locationText: "Қарамұрт ауылы, «Гузар» мейрамханасы",
+        mapLink: "Картадан қарау", contactTitle: "Құттықтау үшін қоңырау:", groomPhone: "Қоңырау шалу",
+        days: "күн", hours: "сағат", minutes: "минут", started: "Той басталды!",
         owners: "Той иелері: Мирзахмат ата ұлы Вахиджан Нуртаевтар отбасы",
         final: "Біз сіздерді осы бақытты күнімізде көруге қуаныштымыз!",
-        weekdays: ["Дс", "Сс", "Ср", "Бс", "Жм", "Сн", "Жк"]
+        weekdays: ["Дс", "Сс", "Ср", "Бс", "Жм", "Сн", "Жк"], scrollDown: "⬇ Төмен", scrollUp: "⬆ Жоғары"
     },
     ru: {
-        groom: "Бехруз",
-        bride: "Нигара",
-        date: "21 августа 2025",
+        groom: "Бехруз", bride: "Нигара", date: "21 августа 2025",
         inviteTitle: "Приглашаем вас на свадьбу!",
         inviteText: `Дорогие гости! Приглашаем вас на радостное торжество по случаю свадьбы наших детей — <span class="highlight-name">Бехруза</span> и <span class="highlight-name">Нигары</span>.`,
-        locationTitle: "Место проведения:",
-        locationText: "с. Карамурт, ресторан «Гузар»",
-        mapLink: "Посмотреть на карте",
-        contactTitle: "Контакты для поздравления:",
-        groomPhone: "Позвонить",
-        days: "дней",
-        hours: "часов",
-        minutes: "минут",
-        started: "Праздник начался!",
+        locationTitle: "Место проведения:", locationText: "с. Карамурт, ресторан «Гузар»",
+        mapLink: "Посмотреть на карте", contactTitle: "Контакты для поздравления:", groomPhone: "Позвонить",
+        days: "дней", hours: "часов", minutes: "минут", started: "Праздник начался!",
         owners: "Хозяева торжества: семья Нуртаева Вахиджана Мирзахматовича",
         final: "Мы будем рады видеть вас в этот счастливый день!",
-        weekdays: ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
+        weekdays: ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"], scrollDown: "⬇ Вниз", scrollUp: "⬆ Вверх"
     }
 };
 
@@ -320,14 +302,13 @@ function setLang(lang) {
     document.getElementById("groom-phone").textContent = t.groomPhone;
     document.getElementById("owners-text").textContent = t.owners;
     document.getElementById("final-text").textContent = t.final;
+    updateScrollButton();
     renderCalendar();
 }
 
 function renderCalendar() {
     const t = translations[currentLang];
-    const year = 2025;
-    const month = 7;
-    const weddingDay = 21;
+    const year = 2025, month = 7, weddingDay = 21;
     const firstDay = new Date(year, month, 1).getDay();
     const daysInMonth = new Date(year, month+1, 0).getDate();
     let startDay = (firstDay === 0) ? 7 : firstDay;
@@ -342,37 +323,55 @@ function renderCalendar() {
 }
 
 const weddingDate = new Date("August 21, 2025 20:00:00").getTime();
-const countdownElement = document.getElementById("countdown");
 function updateCountdown() {
     const now = new Date().getTime();
     const distance = weddingDate - now;
     const t = translations[currentLang];
+    const countdownElement = document.getElementById("countdown");
     if (distance < 0) {
         countdownElement.textContent = t.started;
         return;
     }
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const days = Math.floor(distance / (1000*60*60*24));
+    const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+    const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
     countdownElement.textContent = `${days} ${t.days} ${hours} ${t.hours} ${minutes} ${t.minutes}`;
 }
 setInterval(updateCountdown, 1000);
-updateCountdown();
 
-const music = document.getElementById("bg-music");
-const musicBtn = document.getElementById("music-toggle");
-musicBtn.addEventListener("click", () => {
-    if (music.paused) {
-        music.play();
-        musicBtn.textContent = "⏸";
+document.getElementById("music-toggle").addEventListener("click", () => {
+    const music = document.getElementById("bg-music");
+    const btn = document.getElementById("music-toggle");
+    if (music.paused) { music.play(); btn.textContent = "⏸"; }
+    else { music.pause(); btn.textContent = "▶"; }
+});
+
+const scrollBtn = document.getElementById("scroll-btn");
+scrollBtn.addEventListener("click", () => {
+    const headerHeight = document.querySelector("header").offsetHeight;
+    if (window.scrollY < headerHeight - 50) {
+        window.scrollTo({ top: headerHeight, behavior: "smooth" });
     } else {
-        music.pause();
-        musicBtn.textContent = "▶";
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }
 });
 
-renderCalendar();
-</script>
+function updateScrollButton() {
+    const t = translations[currentLang];
+    const headerHeight = document.querySelector("header").offsetHeight;
+    if (window.scrollY < headerHeight - 50) {
+        scrollBtn.textContent = t.scrollDown;
+    } else {
+        scrollBtn.textContent = t.scrollUp;
+    }
+}
+window.addEventListener("scroll", updateScrollButton);
 
+// Инициализация
+setLang("uz");
+updateCountdown();
+renderCalendar();
+updateScrollButton();
+</script>
 </body>
 </html>
